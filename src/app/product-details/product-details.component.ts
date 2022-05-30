@@ -8,7 +8,10 @@ import { Product, products } from '../products';
   styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+  product: Product | undefined;
+  constructor(private route: ActivatedRoute) {}
+  ngOnInit(): void {
+    const routeParams = this.route.snapshot.paramMap;
+    const productIdFromRoute = Number(routeParams.get('productId'));
+  }
 }
